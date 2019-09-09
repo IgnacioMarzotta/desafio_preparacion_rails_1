@@ -1,0 +1,14 @@
+<div class="form-margin">
+    <p>
+    <strong>Name:</strong>
+    <br>
+    <h4><%= @movie.name %></h4>
+    <br>
+    <strong>Year:</strong>
+    <br>
+    <h4><%= @movie.year %></h4>
+    </p>
+
+    <%= link_to '<< BACK', movies_path, class: "btn btn-primary" %>
+    <%= link_to 'Edit', edit_movie_path(@movie), class: "btn btn-primary"  %>
+</div>

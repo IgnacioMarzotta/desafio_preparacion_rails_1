@@ -1,0 +1,82 @@
+<h1 class="table-favourites">YOUR FAVOURITES</h1>
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Favourite</th>
+      <th scope="col">Name</th>
+      <th scope="col">Year</th>
+      <th scope="col">Show</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie|%>
+      <%if(movie.favourite == true)%>
+        <tr>
+          <td> <% if(movie.favourite == true)%>
+            <%= movie.favourite = "YES"%>
+            <% else %>
+            <%= movie.favourite = "NO "%>
+            <% end%>
+          </td>
+          <td><b><%= movie.name %></b></td>
+          <td><%= movie.year %>
+            <% if(movie.year >= 2018)%>
+            <span class="badge badge-danger">NEW!</span>
+            <% elsif(movie.year <= 1980)%>
+            <span class="badge badge-primary">CLASSIC!</span>
+            <% end %>
+          </td>
+          <td> <%= link_to "Show", movie%></td>
+          <td> <%= link_to "Edit", edit_movie_path(movie)%></td>
+          <td> <%= link_to "Delete", movie, method: :delete, data: {confirm: 'B R U H, are you really destroying this masterpiece?'} %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<h1 class="table-favourites">OTHER MOVIES</h1>
+
+<table class="table table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Favourite</th>
+      <th scope="col">Name</th>
+      <th scope="col">Year</th>
+      <th scope="col">Show</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @movies.each do |movie|%>
+      <%if(movie.favourite == false)%>
+        <tr>
+          <td> <% if(movie.favourite == true)%>
+            <%= movie.favourite = "YES"%>
+            <% else %>
+            <%= movie.favourite = "NO "%>
+            <% end%>
+          </td>
+          <td><b><%= movie.name %></b></td>
+          <td><%= movie.year %>
+            <% if(movie.year >= 2018)%>
+            <span class="badge badge-danger">NEW!</span>
+            <% elsif(movie.year <= 1980)%>
+            <span class="badge badge-primary">CLASSIC!</span>
+            <% end %>
+          </td>
+          <td> <%= link_to "Show", movie%></td>
+          <td> <%= link_to "Edit", edit_movie_path(movie)%></td>
+          <td> <%= link_to "Delete", movie, method: :delete, data: {confirm: 'B R U H, are you really destroying this masterpiece?'} %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<br>
+<!-- OTRA FORMA DE RESOLVER EL FILTRO ES USANDO regular_movies en vez de el if -->
+<!-- ACOMPAÑADO DE movies_controller-->

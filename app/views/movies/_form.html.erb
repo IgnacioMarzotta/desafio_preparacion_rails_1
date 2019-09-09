@@ -1,0 +1,22 @@
+<div class="form-margin">
+    <%= form_with(model: @movie, local: true) do |f| %>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Movie name</label>
+            <br>
+            <%= f.text_field :name%>
+            <small id="emailHelp" class="form-text text-muted">* Can't be empty</small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Movie's release year</label>
+            <br>
+            <%= f.text_field :year%>
+            <small id="emailHelp" class="form-text text-muted">* Can't be empty</small>
+        </div>
+        <div class="form-group form-check">
+            <%= f.label :favourite %>
+            <%= f.check_box :favourite %>
+        </div>
+        <%= link_to '<< BACK', movies_path, class: "btn btn-primary" %>
+        <%= f.submit :DONE, class: "btn btn-primary"%>
+    <% end %>
+</div>
